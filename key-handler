@@ -1,4 +1,6 @@
 #!/bin/sh
+# .config/sxiv/exec
+
 while read file ; do
 	fullpath="$(pwd)/$file"
     #echo $file
