@@ -1,0 +1,17 @@
+#!/bin/sh
+while read file ; do
+	fullpath="$(pwd)/$file"
+    #echo $file
+    file2=$( echo $fullpath | cut -d '/' -f 8 )
+        case "$1" in
+		"w") gsettings set org.gnome.desktop.background picture-options "scaled"
+             gsettings set org.gnome.desktop.background picture-uri file:///"$file" ;;
+        "y") echo -n "$file2" | xclip -selection clipboard &&
+			notify-send -i "$file2" "$file2 copied to clipboard" ;;
+		"Y") echo -n "$file" | xclip -selection clipboard &&
+			notify-send -i "$file2" "$file copied to clipboard" ;;
+        'd') rm $file;;
+        esac
+done
+#echo $fullpath
+#echo $file
