@@ -1,5 +1,8 @@
 #!/bin/sh
-# .config/sxiv/exec
+
+# location:  .config/sxiv/exec
+
+# key bindings for sxiv, for deleting, copying full or absolute filename
 
 while read file ; do
 	fullpath="$(pwd)/$file"
